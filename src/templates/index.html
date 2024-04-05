@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Anonym Notes</title>
+  </head>
+  <body>
+    <script>
+      document
+        .getElementById("submitButton")
+        .addEventListener("click", function () {
+          sendData();
+        });
+
+      function sendData() {
+        const formData = new FormData(document.getElementById("myForm"));
+
+        fetch("http://your-fastapi-server-endpoint", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data);
+            // Действия после успешного ответа сервера
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            // Действия в случае ошибки
+          });
+      }
+    </script>
+    <div class="container">
+      <div class="add_note">
+        <h2>
+          Add your anonym note,<br />
+          and we will send it
+        </h2>
+        <form
+          id="form_for_send_note"
+          action="{{url_for('add_note')}}"
+          method="POST"
+        >
+          <label for="note">Note:</label>
+          <input class="input" type="text" name="note" id="note" required />
+          <br />
+          <label for="email">Email:</label>
+          <input class="input" type="email" name="email" id="email" required />
+          <br />
+          <input class="submit" type="submit" value="Send note" />
+        </form>
+      </div>
+      <div class="check_note">
+        <h2>Check note</h2>
+        <form
+          id="form_for_get_note"
+          action="{{url_for('check_note')}}"
+          method="POST"
+        >
+          <label for="note_id">Note ID:</label>
+          <input
+            class="input"
+            type="text"
+            name="note_id"
+            id="note_id"
+            required
+          />
+          <br />
+          <label for="key">Key:</label>
+          <input class="input" type="text" name="key" id="key" required />
+          <br />
+          <input class="submit" type="submit" value="Check note" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

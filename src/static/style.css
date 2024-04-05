@@ -1,0 +1,61 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:flex-end;
+}
+
+h2 {
+    font-size: 25px;
+    text-align: center;
+}
+
+.add_note, .check_note {
+    width: 450px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f69a73;
+    border-bottom: 2px solid #d87d56;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.check_note {
+    margin-top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+form input {
+    display: block;
+    width: 300px;
+    border: none;
+    background: #E9EFF6;
+    height: 40px;
+}
+
+
+.input {
+    height: 30px;
+    border-radius: 5px;
+}
+
+.submit {
+    border: none;
+    padding: 10px 0px;
+    border-radius: 5px;
+    cursor: pointer;
+}
