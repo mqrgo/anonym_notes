@@ -48,8 +48,8 @@ def send_mail(message: str, email: str) -> bool | dict:
     forming a message using unput data and trying to send it
     return - True for succes an exception args
     '''
-    sender = 'millenniummilkids@gmail.com'
-    password = 'eshe sore pvaw folz'
+    sender = #sender from config
+    password = #password from config
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
 
